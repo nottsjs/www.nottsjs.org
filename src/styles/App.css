@@ -1,21 +1,7 @@
-/* Base Application Styles */
-body {
-  color: #fff;
-  background: #222;
-}
-
-.index img {
-  margin: 40px auto;
-  border-radius: 4px;
-  background: #fff;
-  display: block;
-}
-
-.index .notice {
-  margin: 20px auto;
-  padding: 15px 0;
-  text-align: center;
-  border: 1px solid #000;
-  border-width: 1px 0;
-  background: #666;
+html, body {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  background-color: hsl(55, 100%, 49%);
+  color: hsl(0, 0%, 22%);
+  padding: 16px;
 }
