@@ -1,29 +1,21 @@
 
 import React from 'react';
+import { Link } from 'react-router';
 
 export default class Header extends React.Component {
-
-  handleChange(e) {
-    const tb_title = e.target.value;
-    this.props.topLevelModule1(tb_title);
+  static propTypes = {
+    title: React.PropTypes.string.isRequired
   }
 
   render() {
-    if (this.props.txtBoxVisible) {
+    const { title } = this.props;
     return (
-      <div>
-          <header><h1>{this.props.txtBoxVisible}</h1></header>
-          <header><h1>{this.props.title}</h1></header>
-          <input value={this.props.title} onChange={this.handleChange.bind(this)}/>
-        </div>
-      );
-    } else {
-    return (
-      <div>
-          <header><h1>{this.props.txtBoxVisible}</h1></header>
-          <header><h1>{this.props.title}</h1></header>
-        </div>
-      );
-    }
+      <header>
+        <h1>Notts JS - {title}</h1>
+        <Link to='/'>Home</Link>
+        <Link to='/about'>About</Link>
+        <Link to='/training'>Training</Link>
+      </header>
+    );
   }
 }

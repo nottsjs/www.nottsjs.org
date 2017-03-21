@@ -1,32 +1,20 @@
 import 'core-js/fn/object/assign';
+import 'normalize.css/normalize.css';
+import 'styles/app.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-// Import routing components
-import { Router, Route, browserHistory } from 'react-router';
-
-var data = [
-	{
-	info1: 'Tired',
-	info2: 'More Awake'
-	},
-	{
-	info1: 'Very Tired',
-	info2: 'Even More Awake'
-	},
-	{
-	info1: 'Sleeping',
-	info2: 'Buzzin'
-	}]
+import { Router, Route, hashHistory } from 'react-router';
 
 import Home from './components/Pages/Home.jsx';
 import About from './components/Pages/About.jsx';
 import Training from './components/Pages/Training.jsx';
 
 ReactDOM.render(
-    <Router history={browserHistory}>
+    <Router history={hashHistory}>
         <Route path="/" component={Home}/>
-        <Route path="/About" component={About} data={data}/>
-        <Route path="/Training" component={Training} data={data}/>
+        <Route path="/About" component={About} />
+        <Route path="/Training" component={Training} />
     </Router>,
     document.getElementById('app')
 );
