@@ -1,11 +1,20 @@
 import 'core-js/fn/object/assign';
+import 'normalize.css/normalize.css';
+import 'styles/app.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, Route, hashHistory } from 'react-router';
 
-import App from './components/app';
+import Home from './components/Pages/Home.jsx';
+import About from './components/Pages/About.jsx';
+import Training from './components/Pages/Training.jsx';
 
-// Render the main component into the dom
 ReactDOM.render(
-  <App />,
-  document.getElementById('app')
+    <Router history={hashHistory}>
+        <Route path="/" component={Home}/>
+        <Route path="/About" component={About} />
+        <Route path="/Training" component={Training} />
+    </Router>,
+    document.getElementById('app')
 );
