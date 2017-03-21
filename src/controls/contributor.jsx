@@ -9,7 +9,7 @@ export default class Contributor extends React.Component {
     return (
       <div>
         <h3>{data.name}</h3>
-        <p><a href='https://github.com/{data.user_id}' target='_blank'>@{data.user_id}</a></p>
+        <p><a href={`https://github.com/${data.user_id}`} target='_blank'>@{data.user_id}</a></p>
         <p>Pull Requests: {data.count}</p>
       </div>
     );
