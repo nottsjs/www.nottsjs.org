@@ -2,6 +2,9 @@ import 'core-js/fn/object/assign';
 import 'normalize.css/normalize.css';
 import 'styles/app.css';
 
+import 'react-mdl/extra/css/material.yellow-indigo.min.css';
+import 'react-mdl/extra/material.js';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory } from 'react-router';

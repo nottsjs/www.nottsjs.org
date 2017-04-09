@@ -1,7 +1,6 @@
 import React from 'react';
 
-import Header from './header';
-import Footer from './footer';
+import { Layout, Header, Drawer, Content } from 'react-mdl';
 
 export default class Template extends React.Component {
   static propTypes = {
@@ -11,13 +10,13 @@ export default class Template extends React.Component {
     const { title } = this.props;
     document.title = title + ' - NottsJS';
     return (
-      <div>
+      <Layout fixedHeader>
         <Header title={title} />
-        <main>
+        <Drawer title={title} />
+        <Content>
           {this.props.children}
-        </main>
-        <Footer />
-      </div>
+        </Content>
+      </Layout>
     );
   }
 }
