@@ -37,9 +37,6 @@ The routing method was based on the article from ..
 
 I have gone with browser history for now rather than hash history if someone knows what they are doing feel free to change that about. 
 
-I have played around with props, passing back functions and booleans to the header page
-to provide switched layouts just to see if it can be done. All of the trial and error work has been done on the /training route and mapped out to / and /about when I have go the hand of it all.
-
 Changes made to ....
 
 Components folder

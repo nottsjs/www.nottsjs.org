@@ -1,7 +1,147 @@
 html, body {
   font-family: Arial, sans-serif;
   font-size: 14px;
-  background-color: hsl(55, 100%, 49%);
+  background-color: white;
   color: hsl(0, 0%, 22%);
   padding: 16px;
 }
+
+.member {
+	margin: 2px 2px 2px 2px;
+	border: 1 solid black;
+}
+.memberslist {
+	border: 1 solid black;
+	opacity: 0.5;
+}
+
+/* Here we have main
+page alignment */
+
+div.templatecontainer{
+	position: static;
+	width: 800px;
+	top: 0px;
+	height: 900px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.container{
+	position: static;
+	width: 800px;
+	top: 0px;
+	height: 900px;
+	margin-left: auto;
+	margin-right: auto;
+}
+div.header{
+	position: relative;
+	width: 800px;
+	top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	/* border: 3px solid blue; */
+
+}
+div.bodycontainer{
+	position: relative;
+	width: 800px;
+	height: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	/* border: 3px solid blue; */
+	
+}
+div.bodysection{
+	position: relative;
+	float: left;
+	width: 600px;
+	height: 800px;
+	display: inline-block;
+	background-color: yellow;	
+}
+div.aside{
+	position: absolute;
+	float: right;
+	display: inline-block;
+	width: 200px;
+	height: 800px;
+	background-color: pink;
+}
+
+div.footer{
+	position: relative;
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	bottom: 0px;
+	height: 200px;
+	background-color: lightgreen;
+	/* border: 3px solid blue; */
+}
+
+div.navbar{
+	position: absolute;
+	height: 20px;
+	bottom: 10px;
+}
+
+.navbar2{
+	padding-right: 10px;
+	padding-left: 10px;
+	color: grey;
+}
+
+/*
+::selection{
+	color: blue;
+	background-color: lightgreen;
+}
+*/
+
+
+/* Here we have logo info */
+
+.logofloat{
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	background-color: white;
+}
+
+.sponsorfloat{
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	background-color: white;
+}
+
+.sponsorstack{
+	position: absolute;
+	top: 70px;
+	right:20px;
+	background-color: white;
+}
+
+.sponsorstack2{
+	position: absolute;
+	top: 180px;
+	right:20px;
+	background-color: white;
+}
+
+member.name {}
+member.quote{}
+
+
+
+
+
+
+
+
+
+
+
+

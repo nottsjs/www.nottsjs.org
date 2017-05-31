@@ -1,23 +1,30 @@
 import React from 'react';
-
-import Header from './header';
-import Footer from './footer';
+import Header from './Header';
+import Footer from './Footer';
 
 export default class Template extends React.Component {
+  /*
   static propTypes = {
     title: React.PropTypes.string.isRequired
   }
+  */
+
+  constructor(props){
+    super(props);
+  }
+
   render() {
     const { title } = this.props;
     document.title = title + ' - NottsJS';
     return (
-      <div>
-        <Header title={title} />
-        <main>
-          {this.props.children}
-        </main>
+      <div className='templatecontainer'>
+        <Header />
+        <main>{this.props.children}</main>
         <Footer />
       </div>
     );
   }
 }
+/*
+
+*/

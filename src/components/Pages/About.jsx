@@ -1,11 +1,13 @@
 import React from 'react';
+import ContributorList from '../../controls/contributor-list';
+import contributors from '../../data/contributors';
 import Template from '../Common/Template'
 
-export default class PageComponent extends React.Component {
+export default class AboutComponent extends React.Component {
   render() {
     return (
-      <Template title='About Page'>
-        <h4>This will be the about page</h4>
+      <Template title='Contributer list'>
+        <ContributorList items={contributors} />
       </Template>
     );
   }
