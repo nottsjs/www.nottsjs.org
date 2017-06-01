@@ -20,9 +20,10 @@ function Member(props) {
 export default class MembersList extends React.Component {
 	constructor(props){
 		super(props);
-		this.membersdata = () => getTestData()
+		this.membersdata = getTestData();
 		this.imgwidth = 200;
 		console.log('--- Memberslist is instantiated');
+		console.log(this.membersdata);
 		//var tm = this.membersdata;
 	}
 
@@ -31,9 +32,13 @@ export default class MembersList extends React.Component {
 
 	render(){
 		console.log('--- Just rendering the members list');
+		var tm = this.membersdata;
+		var pstyle = {color: 'green'};
 		return(
 		<div className="aside">
-			<h3>Bugger Me Pinkish Here is where it all goes to pot {this.membersdata.id}</h3>
+			<img src={tm.id.photo.thumb_link} width="100px" />
+			<p>"{tm.id.bio}" - <span style={pstyle} >{tm.id.name}</span></p>
+			<div className="hline" />
 		</div>
 		);
 	}

@@ -56,7 +56,7 @@ div.bodycontainer{
 div.bodysection{
 	position: relative;
 	float: left;
-	width: 600px;
+	width: 678px;
 	height: 800px;
 	display: inline-block;
 	background-color: yellow;	
@@ -65,10 +65,20 @@ div.aside{
 	position: absolute;
 	float: right;
 	display: inline-block;
-	width: 200px;
+	width: 100px;
+	margin: 5px;
+	border: 1px solid black;
+	padding: 5px;
 	height: 800px;
-	background-color: pink;
 }
+div.aside p {
+	font-size: 11px;
+}
+
+.hline { 
+	width:100%; 
+	height:2px; 
+	background: grey }
 
 div.footer{
 	position: relative;
@@ -77,7 +87,7 @@ div.footer{
 	margin-right: auto;
 	bottom: 0px;
 	height: 200px;
-	background-color: lightgreen;
+	background-color: darkgrey;
 	/* border: 3px solid blue; */
 }
 
@@ -92,6 +102,12 @@ div.navbar{
 	padding-left: 10px;
 	color: grey;
 }
+.navbar3{
+	padding-right: 10px;
+	padding-left: 10px;
+	color: black;
+}
+
 
 /*
 ::selection{
