@@ -56,23 +56,24 @@ div.bodycontainer{
 div.bodysection{
 	position: relative;
 	float: left;
-	width: 678px;
-	height: 800px;
+	width: 668px;
+	height: 784px;
+	margin: 2px;
+	border: 1px solid black;
+	padding: 5px;
 	display: inline-block;
-	background-color: yellow;	
+	background-color: pink;	
 }
 div.aside{
 	position: absolute;
 	float: right;
 	display: inline-block;
 	width: 100px;
-	margin: 5px;
+	height: 784px;
+	margin: 2px;
 	border: 1px solid black;
 	padding: 5px;
-	height: 800px;
-}
-div.aside p {
-	font-size: 11px;
+	background-color: pink;
 }
 
 .hline { 
