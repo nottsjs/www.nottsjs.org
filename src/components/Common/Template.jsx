@@ -14,10 +14,16 @@ export default class Template extends React.Component {
   }
 
   render() {
-    const { title } = this.props;
-    document.title = title + ' - NottsJS';
+    var templateStyle = {
+        position: 'static',
+        width: '800px',
+        top: '0px',
+        height: '900px',
+        marginLeft: 'auto',
+        marginRight: 'auto'
+        }
     return (
-      <div className='templatecontainer'>
+      <div style={templateStyle}>
         <Header />
         <main>{this.props.children}</main>
         <Footer />
@@ -25,6 +31,3 @@ export default class Template extends React.Component {
     );
   }
 }
-/*
-
-*/

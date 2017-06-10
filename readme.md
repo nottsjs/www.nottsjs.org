@@ -31,17 +31,9 @@ Note - If running with sublime and you want to add a .jsx extension beutifier
        2. Open a .jsx file
        3. Select View from the menu 
        4. Then Syntax -> Open all with current extension as.. -> Babel - Javascript (Babel)
-
-The routing method was based on the article from ..
-	https://scotch.io/tutorials/routing-react-apps-the-complete-guide
+References are: 
+http://gunnariauvinen.com/getting-es6-syntax-highlighting-in-sublime-text/
+https://scotch.io/tutorials/routing-react-apps-the-complete-guide
 
 I have gone with browser history for now rather than hash history if someone knows what they are doing feel free to change that about. 
-
-Changes made to ....
-
-Components folder
-index.jsx
-package.json
-readme.md
-
 ------------------------------

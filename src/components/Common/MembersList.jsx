@@ -2,8 +2,6 @@
 
 import React from 'react';
 
-
-
 // Support Functions
 function createCORSRequest(method, url) {
 	/*
@@ -41,28 +39,27 @@ class Member extends React.Component {
 	// MEMBER return method
 	render(){
 		var pstyle = {
+			fontSize: '12px'
+		}
+		var spanstyle = {
 			color: 'green',
 			fontSize: '11px'
 		}
-		var hline = {
-			width:  '100%',
-			height: '2px',
-			background: 'grey'
+		var imgStyle = {
+			borderRadius: '15px 15px 15px 15px'
 		}
 		var td = this.props.dataString
 		if ('photo' in td) {
 			return (
 				<div>
-					<img src={td.photo.thumb_link} width="100px" />
-					<p>"{td.bio}" - <span style={pstyle} >{td.name}</span></p>
-					<div style={hline} />
+					<img style={imgStyle} src={td.photo.thumb_link} width="80px" />
+					<p style={pstyle}>"{td.bio}" - <span style={spanstyle} >{td.name}</span></p>
 				</div>
 			);
 		} else {
 			return (
 				<div>
-					<p>"{td.bio}" - <span style={pstyle} >{td.name}</span></p>
-					<div style={hline} />
+					<p style={pstyle}>"{td.bio}" - <span style={spanstyle} >{td.name}</span></p>
 				</div>
 			);
 		}
@@ -74,11 +71,8 @@ export default class MembersList extends React.Component {
 	constructor(props){
 		super(props);            // Calls the constructor of the parent class. In this case React.component
 		this.membersdata = getTestData();
-		console.log('--- First data set ...')
-		console.log(this.membersdata);
-		
-		this.imgwidth = 200;
 		this.state = { showReceivedList: false };
+		console.log('--- MembersList Constructor Loading ...');
 
 		// Kickoff the fetch of the members list'
 		var url = 'https://www.google.com'
@@ -114,16 +108,16 @@ export default class MembersList extends React.Component {
 	}
 
 	// MEMBERSLIST EVENT HANDLER (CORS)
+	// 'this' could have been configured using bind by placing the following in the constructor above.
+	// this.processRequest = this.processRequest.bind(this);
+	// Doing this would have meant that the arrow function need not have been used below.
 	processRequest = e => {
-		// Having grabbed the data now we need to save it to the membersdata file.
-		console.log('--- Here we have e.')
 		console.log(e);
 		var xhr = e.target;
 		if (xhr.readyState == 4 && xhr.status == 200) {
 			this.membersdata = JSON.parse(xhr.responseText);
-			console.log(this.membersdata);
+			console.log('--- Changing state to cause re-render with new list');
 			this.setState({ showReceivedList:  true });          // A function taking an object as the argument
-			console.log('--- Just set state');
 	    }
 	    console.log('--- ' + e.target.status + '  ' + this.state.showReceivedList);
 	}
@@ -140,13 +134,12 @@ export default class MembersList extends React.Component {
 			border: '1px solid black',
 			padding: '5px',
 			backgroundColor: 'pink',
-			overflow: 'visible'
+			overflow: 'scroll'
 		}
-		console.log('--- Just rendering the members list');
+		console.log('--- Rendering the members list');
 		return(
 		<div style={assideStyle}>
           {this.membersdata.map((item, ix) => {
-          	  //{console.log(item.photo.thumb_link)}
               return (
               		<Member key={ix} dataString={item} />
 	          	)}
@@ -161,44 +154,9 @@ function getTestData() {
 			id: 2890627,
 			name: 'Nomad3k',
 			bio: 'Main organiser and React architect for the NottsJS group',
-			status: 'active',
-			joined: 1149459999000,
-			city: 'Derby',
-			country: 'gb',
-			localized_country_name: 'United Kingdom',
-			state: 'D3',
-			lat: 52.92,
-			lon: -1.5,
 			photo: {
 				id: 252816582,
-				highres_link: 'https://secure.meetupstatic.com/photos/member/8/e/e/6/highres_252816582.jpeg',
-				photo_link: 'https://secure.meetupstatic.com/photos/member/8/e/e/6/member_252816582.jpeg',
-				thumb_link: 'https://secure.meetupstatic.com/photos/member/8/e/e/6/thumb_252816582.jpeg',
-				type: 'member',
-				base_url: 'https://secure.meetupstatic.com'
-			},
-			group_profile: {
-				status: 'active',
-				visited: 1495045638000,
-				created: 1452115213000,
-				updated: 1454692776000,
-				role: 'coorganizer',
-				group: {
-					id: 19268350,
-					urlname: 'NottsJS',
-					name: 'NottsJS',
-					who: 'Members',
-					members: 470,
-					join_mode: 'open',
-					group_photo: {
-						id: 445593863,
-						highres_link: 'https://secure.meetupstatic.com/photos/event/8/4/4/7/highres_445593863.jpeg',
-						photo_link: 'https://secure.meetupstatic.com/photos/event/8/4/4/7/600_445593863.jpeg',
-						thumb_link: 'https://secure.meetupstatic.com/photos/event/8/4/4/7/thumb_445593863.jpeg',
-						type: 'event',
-						base_url: 'https://secure.meetupstatic.com'
-					}
-				}
+				thumb_link: 'https://secure.meetupstatic.com/photos/member/8/e/e/6/thumb_252816582.jpeg'
 			},
 			link: 'https://www.meetup.com/NottsJS/members/2890627/'
 		}]);

@@ -12,3 +12,4 @@ export default class AboutComponent extends React.Component {
     );
   }
 }
+
