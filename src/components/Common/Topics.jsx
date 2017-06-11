@@ -45,7 +45,7 @@ class Topic extends React.Component {
 		}
 		var ds = this.props.dataString;
 		return (
-			<div style={divStyle} ref={input => this.divRef = input}>
+			<div onClick={(e) => this.props.clicked(e,this.props.ident)} style={divStyle} ref={input => this.divRef = input}>
 				<h2 style={centeredH2}>{ds.title}</h2>
 				<img style={centeredImg} src={ds.image} width={ds.imgwidth} />
 				<div style={divp}>
@@ -83,14 +83,15 @@ export default class Topics extends React.Component {
 			this.topicRefs.forEach((item,ix) => {
 				this.topicHeights[ix] = item.divRef.offsetHeight;
 			});
-			// console.log('--- Before set state change visibility is ' + this.state.visibility);
 			this.setState({ visibility: 'visible' });
-				// Note - immediately after setting state visibility is still hidden.
-				//        However by the time we get to re-rendering the Topics it sgows correctly
-				//        as visible.
-			// console.log('--- After set state change visibility is ' +  this.state.visibility);
-				// This will force a remount but now we know what all of the topic heights are
-				// we can position them absolutely with the above calculated top and left figures
+				/*
+				Note - Immediately after setting state, visibility is still hidden.
+				       However by the time we get to re-rendering the Topics it shows correctly
+				       as visible.
+				       Changing state forces a remount but this time topics will be visible
+				       and we know the rendered height of each topic.  So we can position
+				       it correctly.
+				*/
 		} else {
 			console.log('--- All components mounted - through again');
 		}
@@ -110,11 +111,15 @@ export default class Topics extends React.Component {
 	}
 
 	// TOPICS EVENT HANDLER(S)
-	handleClickEvent = e => {
+	handleClickEvent = (e,ident) => {
 		// Having clicked on the topic we need to take information from the event to
 		// jump to the next route.
-		console.log(e);
-	    console.log('--- Topic Has been clicked');
+		e.preventDefault();
+	    console.log('--- Topic ' + ident + ' has been clicked');
+	    console.log('--- Jumping to ' + this.topicData[ident].href);
+	    var win = window.open(this.topicData[ident].href);
+  		win.focus();
+
 	}
 
 	// MEMBERSLIST return method with styling
@@ -157,8 +162,9 @@ export default class Topics extends React.Component {
 	          	  	this.topPos[this.col] += this.topicHeights[ix] + 5
 	          	}
 		      	return (
-              		<Topic onclick={this.handleClickEvent}
+              		<Topic clicked={this.handleClickEvent}
               		       key={ix}
+              		       ident={ix}
               		       dataString={item}
               		       top= {this.newtop}
               		       left = {this.newleft}
